@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyProductForm">
+    <children>
+        <BorderPane layoutX="25.0" layoutY="17.0" prefHeight="562.0" prefWidth="849.0" style=" -fx-border-color: black; -fx-border-width: 1; -fx-border-style: solid; -fx-border-radius: 18 18 18 18" />
+        <Label layoutX="55.0" layoutY="55.0" text="Modify Product">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+        <GridPane layoutX="79.0" layoutY="123.0" prefHeight="221.0" prefWidth="53.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="ID" />
+                <Label text="Name" GridPane.rowIndex="1" />
+                <Label text="Inv" GridPane.rowIndex="2" />
+                <Label text="Price" GridPane.rowIndex="3" />
+                <Label text="Max" GridPane.rowIndex="4" />
+            </children>
+        </GridPane>
+        <TextField fx:id="modifyProductIdTxtFld" layoutX="139.0" layoutY="134.0" />
+        <TextField fx:id="modifyProductNameTxtFld" layoutX="139.0" layoutY="179.0" />
+        <TextField fx:id="modifyProductInvTxtFld" layoutX="139.0" layoutY="221.0" prefHeight="25.0" prefWidth="91.0" />
+        <TextField fx:id="modifyProductPriceTxtFld" layoutX="139.0" layoutY="262.0" prefHeight="25.0" prefWidth="91.0" />
+        <TextField fx:id="modifyProductMaxTxtFld" layoutX="139.0" layoutY="309.0" prefHeight="25.0" prefWidth="91.0" />
+        <Label layoutX="250.0" layoutY="313.0" text="Min" />
+        <TextField fx:id="modifyProductMinTxtFld" layoutX="288.0" layoutY="309.0" prefHeight="25.0" prefWidth="91.0" />
+        <TableView fx:id="modifyProductPartDataTbl" layoutX="463.0" layoutY="88.0" prefHeight="165.0" prefWidth="371.0">
+            <columns>
+                <TableColumn fx:id="partDataPartId" prefWidth="68.0" text="Part ID" />
+                <TableColumn fx:id="partDataPartName" prefWidth="82.0" text="Part Name" />
+                <TableColumn fx:id="partDataInvLevel" prefWidth="92.0" text="Inventory Level" />
+                <TableColumn fx:id="partDataPrice" prefWidth="128.0" text="Price/ Cost per Unit" />
+            </columns>
+        </TableView>
+        <TableView fx:id="modifyProductAssociatedPartTbl" layoutX="463.0" layoutY="309.0" prefHeight="158.0" prefWidth="371.0">
+            <columns>
+                <TableColumn fx:id="associatedPartPartId" prefWidth="75.0" text="Part ID" />
+                <TableColumn fx:id="associatedPartNumber" prefWidth="75.0" text="Part Name" />
+                <TableColumn fx:id="associatedPartInvLevel" prefWidth="97.0" text="Inventory Level" />
+                <TableColumn fx:id="associatedPartPrice" prefWidth="123.0" text="Price/ Cost per Unit" />
+            </columns>
+        </TableView>
+        <Button fx:id="modifyProductCancelBtn" layoutX="728.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionCancelMainMenu" text="Cancel" />
+        <Button fx:id="modifyProductSaveBtn" layoutX="643.0" layoutY="527.0" mnemonicParsing="false" text="Save" />
+        <Button fx:id="modifyProductRemoveAssociatedPartBtn" layoutX="643.0" layoutY="489.0" mnemonicParsing="false" text="Remove Associated Part" />
+        <Button fx:id="modifyProductAddBtn" layoutX="735.0" layoutY="262.0" mnemonicParsing="false" text="Add" />
+        <TextField fx:id="modifyProductSearchBar" layoutX="684.0" layoutY="43.0" />
+    </children>
+</AnchorPane>
