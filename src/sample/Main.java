@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Product;
 
 public class Main extends Application {
 
@@ -19,7 +21,9 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        
+//        Product product1 = new Product(1, "Bike", 20.34, 2, 1, 1);
+//
+//        Inventory.addProduct(product1);
 
         launch(args);
     }
