@@ -95,22 +95,22 @@ public class MainMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//
-//        //POPULATING THE PARTS TABLE
-//        partsTbl.setItems(Inventory.getAllParts());
-//        partsTblPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//        partsTblPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
-//        partsTblInvLevel.setCellValueFactory(new PropertyValueFactory<>("stock"));
-//        partsTblPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-//
-//
-//        //POPULATING THE PRODUCTS TABLE
-//        productsTbl.setItems(Inventory.getAllProducts());
-//        productsTblProductId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//        productsTblProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
-//        productsTblInvLevel.setCellValueFactory(new PropertyValueFactory<>("stock"));
-//        productsTblPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-//
+
+        //POPULATING THE PARTS TABLE
+        partsTbl.setItems(Inventory.getAllParts());
+        partsTblPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partsTblPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partsTblInvLevel.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partsTblPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        //POPULATING THE PRODUCTS TABLE
+        productsTbl.setItems(Inventory.getAllProducts());
+        productsTblProductId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        productsTblProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productsTblInvLevel.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        productsTblPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
 
 
 

@@ -1,12 +1,13 @@
 package model;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Inventory {
 
     //VARIABLES
-    private static ObservableList<Part> allParts;
-    private static ObservableList<Product> allProducts;
+    private static ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
     //METHODS
     public static void addPart(Part newPart) {
