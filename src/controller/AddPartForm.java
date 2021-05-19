@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.InHouse;
+import model.Inventory;
+import model.Outsourced;
 
 import java.io.IOException;
 
@@ -34,12 +37,16 @@ public class AddPartForm {
 
     //METHODS
 
-    public void onActionCancelMainMenu(ActionEvent actionEvent) throws IOException {
-        //THIS ALLOWS US TO SWITCH SCREENS WHEN BUTTON IS PRESSED
+    public void returnToMainMenu(ActionEvent actionEvent) throws IOException {
+        //THIS IS CALLED AFTER THE SAVE BUTTON IS PRESSED
         stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/view/mainMenu.fxml"));
         stage.setScene(new Scene(scene));//sets up the scene
         stage.show();
+    }
+
+    public void onActionCancelMainMenu(ActionEvent actionEvent) throws IOException {
+        returnToMainMenu(actionEvent);
     }
 
     public void onActionInHouseChange(ActionEvent actionEvent) {
@@ -56,5 +63,29 @@ public class AddPartForm {
         //WHEN CHANGING FROM IN-HOUSE OR OUTSOURCED, THIS CLEARS THE TEXT FIELD OF THE SHARED BOX
         //THIS IS IN HERE BECAUSE THE COMPANY NAME SHOULDN'T BE A NUMBER
         addPartChangeTxtFld.setText("");
+    }
+
+    public void onActionSaveAddedPart(ActionEvent actionEvent) throws IOException {
+
+        //WE NEED TO FIGURE OUT EVENT HANDLES SUCH AS, INCORRECT DATA TYPE ADDED
+        int id = Integer.parseInt(addPartIdTxtFld.getText());
+        String name = addPartNameTxtFld.getText();
+        double price = Double.parseDouble(addPartPriceTxtFld.getText());
+        int stock = Integer.parseInt(addPartInvTxtFld.getText());
+        int min = Integer.parseInt(addPartMinTxtFld.getText());
+        int max = Integer.parseInt(addPartMaxTxtFld.getText());
+
+        //THIS WILL ADD THE PART THE CORRECT SCREEN
+        if (addPartInHouseRadBtn.isSelected()) {
+            int machineId = Integer.parseInt(addPartChangeTxtFld.getText());
+            Inventory.addPart(new InHouse(id, name, price, stock, min, max, machineId));
+            System.out.println("You added a part to the In-House Category");
+        } else {
+            String companyName = addPartChangeTxtFld.getText();
+            Inventory.addPart((new Outsourced(id, name, price, stock, min, max, companyName)));
+            System.out.println("You added a part to the Outsourced Category");
+        }
+
+        returnToMainMenu(actionEvent);
     }
 }

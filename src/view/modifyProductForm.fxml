@@ -49,15 +49,15 @@
         <TableView fx:id="modifyProductAssociatedPartTbl" layoutX="463.0" layoutY="309.0" prefHeight="158.0" prefWidth="371.0">
             <columns>
                 <TableColumn fx:id="associatedPartPartId" prefWidth="75.0" text="Part ID" />
-                <TableColumn fx:id="associatedPartNumber" prefWidth="75.0" text="Part Name" />
+                <TableColumn fx:id="associatedPartName" prefWidth="75.0" text="Part Name" />
                 <TableColumn fx:id="associatedPartInvLevel" prefWidth="97.0" text="Inventory Level" />
                 <TableColumn fx:id="associatedPartPrice" prefWidth="123.0" text="Price/ Cost per Unit" />
             </columns>
         </TableView>
         <Button fx:id="modifyProductCancelBtn" layoutX="728.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionCancelMainMenu" text="Cancel" />
-        <Button fx:id="modifyProductSaveBtn" layoutX="643.0" layoutY="527.0" mnemonicParsing="false" text="Save" />
-        <Button fx:id="modifyProductRemoveAssociatedPartBtn" layoutX="643.0" layoutY="489.0" mnemonicParsing="false" text="Remove Associated Part" />
-        <Button fx:id="modifyProductAddBtn" layoutX="735.0" layoutY="262.0" mnemonicParsing="false" text="Add" />
-        <TextField fx:id="modifyProductSearchBar" layoutX="684.0" layoutY="43.0" />
+        <Button fx:id="modifyProductSaveBtn" layoutX="643.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionSaveModifyProduct" text="Save" />
+        <Button fx:id="modifyProductRemoveAssociatedPartBtn" layoutX="643.0" layoutY="489.0" mnemonicParsing="false" onAction="#onActionRemoveAssociatedPart" text="Remove Associated Part" />
+        <Button fx:id="modifyProductAddBtn" layoutX="735.0" layoutY="262.0" mnemonicParsing="false" onAction="#onActionAddProduct" text="Add" />
+        <TextField fx:id="modifyProductSearchBar" layoutX="684.0" layoutY="43.0" opacity="0.5" text="Search by Product ID or Name" />
     </children>
 </AnchorPane>

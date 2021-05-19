@@ -2,6 +2,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -9,8 +10,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ModifyPartForm {
+public class ModifyPartForm implements Initializable {
 
     //VARIABLES
     Stage stage;
@@ -44,7 +47,7 @@ public class ModifyPartForm {
         //WHEN CHANGING FROM IN-HOUSE OR OUTSOURCED, THIS CLEARS THE TEXT FIELD OF THE SHARED BOX
         //THIS IS IN HERE BECAUSE THE COMPANY NAME SHOULDN'T BE A NUMBER
         modifyPartChangeTxtFld.setText("");
-    }
+    } //this needs to be removed
 
     public void onActionCancelMainMenu(ActionEvent actionEvent) throws IOException {
         //THIS ALLOWS US TO SWITCH SCREENS WHEN BUTTON IS PRESSED
@@ -52,5 +55,16 @@ public class ModifyPartForm {
         scene = FXMLLoader.load(getClass().getResource("/view/mainMenu.fxml"));
         stage.setScene(new Scene(scene));//sets up the scene
         stage.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
+    }
+
+    public void onActionSaveModifyPart(ActionEvent actionEvent) {
+
     }
 }

@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class MainMenuController implements Initializable {
 
     //VARIABLES
@@ -86,11 +87,14 @@ public class MainMenuController implements Initializable {
     }
 
     public void onActionDeletePart(ActionEvent actionEvent) {
+        Part highlightedPart = partsTbl.getSelectionModel().getSelectedItem();//THIS SHOULD GET THE HIGHLIGHTED PART
+        Inventory.deletePart(highlightedPart);
 
     }
 
     public void onActionDeleteProduct(ActionEvent actionEvent) {
-
+        Product highlightedProduct = productsTbl.getSelectionModel().getSelectedItem();//THIS SHOULD GET THE HIGHLIGHTED PRODUCTS
+        Inventory.deleteProduct(highlightedProduct);
     }
 
     @Override
@@ -109,10 +113,10 @@ public class MainMenuController implements Initializable {
         productsTblProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
         productsTblInvLevel.setCellValueFactory(new PropertyValueFactory<>("stock"));
         productsTblPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        //this is the incorrect table being populated
+    }
 
-
-
-
+    public void onActionSearchParts(ActionEvent actionEvent) {
 
     }
 }

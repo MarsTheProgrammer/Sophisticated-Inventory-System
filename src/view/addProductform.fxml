@@ -31,7 +31,7 @@
                 <Label text="Max" GridPane.rowIndex="4" />
             </children>
         </GridPane>
-        <TextField fx:id="addProductIdTxtFld" layoutX="139.0" layoutY="134.0" />
+        <TextField fx:id="addProductIdTxtFld" layoutX="139.0" layoutY="134.0" text="Auto Gen - Disabled" />
         <TextField fx:id="addProductNameTxtFld" layoutX="139.0" layoutY="179.0" />
         <TextField fx:id="addProductInvTxtFld" layoutX="139.0" layoutY="221.0" prefHeight="25.0" prefWidth="91.0" />
         <TextField fx:id="addProductPriceTxtFld" layoutX="139.0" layoutY="262.0" prefHeight="25.0" prefWidth="91.0" />
@@ -55,9 +55,9 @@
             </columns>
         </TableView>
         <Button fx:id="addProductCancelBtn" layoutX="728.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionCancelMainMenu" text="Cancel" />
-        <Button fx:id="addProductSaveBtn" layoutX="643.0" layoutY="527.0" mnemonicParsing="false" text="Save" />
+        <Button fx:id="addProductSaveBtn" layoutX="643.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionSaveAddedProduct" text="Save" />
         <Button fx:id="addProductRemoveAssociatedPartBtn" layoutX="643.0" layoutY="489.0" mnemonicParsing="false" text="Remove Associated Part" />
         <Button fx:id="addProductAddBtn" layoutX="735.0" layoutY="262.0" mnemonicParsing="false" text="Add" />
-        <TextField fx:id="addProductSearchBar" layoutX="684.0" layoutY="43.0" />
+        <TextField fx:id="addProductSearchBar" layoutX="684.0" layoutY="43.0" opacity="0.5" text="Search by Part ID or Name" />
     </children>
 </AnchorPane>
