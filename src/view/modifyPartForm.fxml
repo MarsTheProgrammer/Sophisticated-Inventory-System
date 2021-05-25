@@ -11,11 +11,11 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <RadioButton fx:id="modifyPartInHouseRadBtn" layoutX="148.0" layoutY="55.0" mnemonicParsing="false" onAction="#onActionInHouseChange" onMouseClicked="#clearTxtFld" selected="true" text="In-House">
+        <RadioButton fx:id="modifyPartInHouseRadBtn" layoutX="148.0" layoutY="55.0" mnemonicParsing="false" onAction="#onActionInHouseChange" selected="true" text="In-House">
             <toggleGroup>
                 <ToggleGroup fx:id="radioBtnTgl" />
             </toggleGroup></RadioButton>
-        <RadioButton fx:id="modifyPartOutsourcedRadBtn" layoutX="288.0" layoutY="55.0" mnemonicParsing="false" onAction="#onActionOutsourceChange" onMouseClicked="#clearTxtFld" text="Outsourced" toggleGroup="$radioBtnTgl" />
+        <RadioButton fx:id="modifyPartOutsourcedRadBtn" layoutX="288.0" layoutY="55.0" mnemonicParsing="false" onAction="#onActionOutsourceChange" text="Outsourced" toggleGroup="$radioBtnTgl" />
         <GridPane layoutX="60.0" layoutY="123.0" prefHeight="180.0" prefWidth="216.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="77.0" />
@@ -35,7 +35,7 @@
             <Label text="Price/Cost" GridPane.rowIndex="3" />
             <Label text="Max" GridPane.rowIndex="4" />
             <Label fx:id="modifyPartChangeLabel" text="MachineID" GridPane.rowIndex="5" />
-            <TextField fx:id="modifyPartIdTxtFld" GridPane.columnIndex="1" />
+            <TextField fx:id="modifyPartIdTxtFld" disable="true" GridPane.columnIndex="1" />
             <TextField fx:id="modifyPartNameTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="modifyPartInvTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="modifyPartPriceTxtFld" GridPane.columnIndex="1" GridPane.rowIndex="3" />

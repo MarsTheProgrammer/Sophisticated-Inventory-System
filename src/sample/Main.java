@@ -15,7 +15,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../view/MainMenu.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Inventory Management System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -23,14 +23,23 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        InHouse bike1 = new InHouse(1, "Bike", 10.99, 5, 2, 3, 1 );
-        Outsourced bike2 = new Outsourced(2, "Mountain Bike", 30.20, 3, 1, 2, "Biking Co.");
-        Product product1 = new Product(3, "Wheel", 10.90, 5, 1, 5);
+        //ADDING TEMP PRODUCTS
+        Product giantBike = new Product(1, "Giant Bike", 10.99, 15, 2, 3);
+        Product scottBike = new Product(2, "Scott Bike", 30.20, 15, 1, 2);
+        Product gtBike = new Product(3, "GT Bike", 30.20, 15, 1, 2);
 
-        Inventory.addPart(bike1);
-        Inventory.addPart(bike2);
-        Inventory.addProduct(product1);
+        Inventory.addProduct(giantBike);
+        Inventory.addProduct(scottBike);
+        Inventory.addProduct(gtBike);
 
+        //ADDING TEMP PARTS
+        InHouse brakes = new InHouse(1, "Brakes", 12.99, 15, 1, 5, 1);
+        InHouse saddle = new InHouse(4, "Saddle", 9.99, 5, 1, 5, 1);
+        Outsourced tire = new Outsourced(2, "Tire", 14.99, 15, 1, 5, "Biking Co.");
+
+        Inventory.addPart(brakes);
+        Inventory.addPart(saddle);
+        Inventory.addPart(tire);
 
         launch(args);
     }

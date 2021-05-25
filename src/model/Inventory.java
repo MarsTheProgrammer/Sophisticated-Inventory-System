@@ -6,10 +6,19 @@ import javafx.collections.ObservableList;
 public class Inventory {
 
     //VARIABLES
+    private static int uniquePartId = 0;
+    private static int uniqueProductId = 0;
     private static ObservableList<Part> allParts = FXCollections.observableArrayList();
     private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
     //METHODS
+    public static int getUniquePartId() {
+        return ++uniquePartId;
+    }
+    public static int getUniqueProductId() {
+        return ++uniqueProductId;
+    }
+
     public static void addPart(Part newPart) {
 
         allParts.add(newPart);
@@ -32,24 +41,48 @@ public class Inventory {
     }
 
     public static Product lookupProduct(int productId) {
-        Product isProductFound = null;
+
         //SAME AS ABOVE, JUST FOR PRODUCT
         for (Product product : allProducts) {
             if (product.getId() == productId) {
-                isProductFound = product;
+                return product;
             }
         }
-        return isProductFound;
+        return null;
     }
 
-//    public static ObservableList<Part> lookupPart(String partName) {
-//
-//    }
+    public static ObservableList<Part> lookupPart(String partName) {
 
-//    public static ObservableList<Product> lookupProduct(String productName) {
-//
-//    }
-//
+        ObservableList<Part> searchedPart = FXCollections.observableArrayList();//EMPTY LIST
+
+        for (Part part : allParts) {
+            if (part.getName().contains(partName)) {
+                searchedPart.add(part);
+            }
+        }
+
+        if (searchedPart.isEmpty()) {
+            return allParts;
+        }
+        return searchedPart;
+    }
+
+    public static ObservableList<Product> lookupProduct(String productName) {
+
+        ObservableList<Product> searchProducts = FXCollections.observableArrayList();//EMPTY LIST
+
+        for (Product product : allProducts) {
+            if (product.getName().contains(productName)) {
+                searchProducts.add(product);
+            }
+        }
+
+        if (searchProducts.isEmpty()) {
+            return allProducts;
+        }
+        return searchProducts;
+    }
+
     public static void updatePart(int index, Part selectedPart) {
         allParts.set(index, selectedPart);
         //SETS THE SELECTED PART TO THE INDEX GIVEN
@@ -82,10 +115,7 @@ public class Inventory {
         return allParts;
     }
 
-    public static ObservableList<Product> getAllProducts() {
-
-        return allProducts;
-    }
+    public static ObservableList<Product> getAllProducts() { return allProducts; }
 
 
 

@@ -71,8 +71,8 @@
                 <Insets />
             </opaqueInsets>
         </HBox>
-        <TextField fx:id="partsSearchBar" layoutX="315.0" layoutY="80.0" onAction="#onActionSearchParts" opacity="0.5" text="Search by PartID or Name" />
-        <TextField fx:id="productsSearchBar" layoutX="813.0" layoutY="80.0" opacity="0.5" text="Search by ProductID or Name" />
+        <TextField fx:id="partsSearchBar" layoutX="315.0" layoutY="80.0" onAction="#onActionSearchParts" onMouseClicked="#onMouseClickedSearchbar" text="Search by PartID or Name" />
+        <TextField fx:id="productsSearchBar" layoutX="813.0" layoutY="80.0" onAction="#onActionProductsSearch" text="Search by ProductID or Name" />
         <Label layoutX="23.0" layoutY="21.0" text="Inventory Management System">
             <font>
                 <Font name="System Bold" size="14.0" />

@@ -59,33 +59,104 @@ public class AddPartForm {
         addPartChangeLabel.setText("Company Name");
     }
 
-    public void clearTxtFld(MouseEvent mouseEvent) {
-        //WHEN CHANGING FROM IN-HOUSE OR OUTSOURCED, THIS CLEARS THE TEXT FIELD OF THE SHARED BOX
-        //THIS IS IN HERE BECAUSE THE COMPANY NAME SHOULDN'T BE A NUMBER
-        addPartChangeTxtFld.setText("");
-    }
 
     public void onActionSaveAddedPart(ActionEvent actionEvent) throws IOException {
 
-        //WE NEED TO FIGURE OUT EVENT HANDLES SUCH AS, INCORRECT DATA TYPE ADDED
-        int id = Integer.parseInt(addPartIdTxtFld.getText());
-        String name = addPartNameTxtFld.getText();
-        double price = Double.parseDouble(addPartPriceTxtFld.getText());
-        int stock = Integer.parseInt(addPartInvTxtFld.getText());
-        int min = Integer.parseInt(addPartMinTxtFld.getText());
-        int max = Integer.parseInt(addPartMaxTxtFld.getText());
+        try {
+            int id = 0;
+            String name = addPartNameTxtFld.getText();
+            double price = Double.parseDouble(addPartPriceTxtFld.getText());
+            int stock = Integer.parseInt(addPartInvTxtFld.getText());
+            int min = Integer.parseInt(addPartMinTxtFld.getText());
+            int max = Integer.parseInt(addPartMaxTxtFld.getText());
+            boolean partWasAdded = false;
 
-        //THIS WILL ADD THE PART THE CORRECT SCREEN
-        if (addPartInHouseRadBtn.isSelected()) {
-            int machineId = Integer.parseInt(addPartChangeTxtFld.getText());
-            Inventory.addPart(new InHouse(id, name, price, stock, min, max, machineId));
-            System.out.println("You added a part to the In-House Category");
-        } else {
-            String companyName = addPartChangeTxtFld.getText();
-            Inventory.addPart((new Outsourced(id, name, price, stock, min, max, companyName)));
-            System.out.println("You added a part to the Outsourced Category");
+            if (minIsValid(min, max) && inventoryIsValid(min, max, stock)) {
+
+            if (addPartInHouseRadBtn.isSelected()) {
+                try {
+                    int machineId = Integer.parseInt(addPartChangeTxtFld.getText());
+                    InHouse inHousePart = new InHouse(id, name, price, stock, min, max, machineId);
+                    inHousePart.setId(Inventory.getUniquePartId());
+                    Inventory.addPart(inHousePart);
+                    partWasAdded = true;
+                } catch (Exception e) {
+                    alertDisplays(4);
+                }
+            }
+            if(addPartOutsourcedRadBtn.isSelected()) {
+                String companyName = addPartChangeTxtFld.getText();
+                Outsourced outsourcedPart = new Outsourced(id, name, price, stock, min, max, companyName);
+                outsourcedPart.setId(Inventory.getUniquePartId());
+                Inventory.addPart(outsourcedPart);
+                partWasAdded = true;
+            }
+            }
+            if (partWasAdded) {
+                returnToMainMenu(actionEvent);
+            }
+        } catch (Exception e) {
+            alertDisplays(1);
         }
 
-        returnToMainMenu(actionEvent);
     }
-}
+
+    private boolean minIsValid(int min, int max) {
+
+        boolean valid = true;
+
+        if (min <= 0 || min >= max) {
+            valid = false;
+            alertDisplays(3);
+        }
+
+        return valid;
+    }
+
+    private boolean inventoryIsValid(int min, int max, int stock) {
+        boolean valid = true;
+
+        if (stock > max || stock < min) {
+            valid = false;
+            alertDisplays(2);
+        } return valid;
+
+    }
+
+    private void alertDisplays(int alertType) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alertInfo = new Alert(Alert.AlertType.INFORMATION);
+
+        switch (alertType) {
+            case 1:
+                alert.setTitle("Error");
+                alert.setHeaderText("Error Adding Part");
+                alert.setContentText("Form contains empty fields or invalid values");
+                alert.showAndWait();
+                break;
+            case 2:
+                alert.setTitle("Error");
+                alert.setHeaderText("Invalid Value for Inventory");
+                alert.setContentText("Inventory must be a number that is equal to or in between min and max values");
+                alert.showAndWait();
+                break;
+            case 3:
+                alert.setTitle("Error");
+                alert.setHeaderText("Invalid Value for Min");
+                alert.setContentText("Min must be a number that is greater than 0 and less than Max");
+                alert.showAndWait();
+                break;
+            case 4:
+                alert.setTitle("Error");
+                alert.setHeaderText("Invalid Value for MachineID");
+                alert.setContentText("MachineID must be numbers only.");
+                alert.showAndWait();
+                break;
+        }
+
+
+    }
+
+
+
+}//END CLASS

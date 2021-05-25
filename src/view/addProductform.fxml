@@ -31,7 +31,7 @@
                 <Label text="Max" GridPane.rowIndex="4" />
             </children>
         </GridPane>
-        <TextField fx:id="addProductIdTxtFld" layoutX="139.0" layoutY="134.0" text="Auto Gen - Disabled" />
+        <TextField fx:id="addProductIdTxtFld" disable="true" layoutX="139.0" layoutY="134.0" text="Auto Gen - Disabled" />
         <TextField fx:id="addProductNameTxtFld" layoutX="139.0" layoutY="179.0" />
         <TextField fx:id="addProductInvTxtFld" layoutX="139.0" layoutY="221.0" prefHeight="25.0" prefWidth="91.0" />
         <TextField fx:id="addProductPriceTxtFld" layoutX="139.0" layoutY="262.0" prefHeight="25.0" prefWidth="91.0" />
@@ -49,15 +49,15 @@
         <TableView fx:id="addProductAssociatedPartTbl" layoutX="463.0" layoutY="309.0" prefHeight="158.0" prefWidth="371.0">
             <columns>
                 <TableColumn fx:id="associatedPartPartId" prefWidth="75.0" text="Part ID" />
-                <TableColumn fx:id="associatedPartNumber" prefWidth="75.0" text="Part Name" />
+                <TableColumn fx:id="associatedPartName" prefWidth="75.0" text="Part Name" />
                 <TableColumn fx:id="associatedPartInvLevel" prefWidth="97.0" text="Inventory Level" />
                 <TableColumn fx:id="associatedPartPrice" prefWidth="123.0" text="Price/ Cost per Unit" />
             </columns>
         </TableView>
         <Button fx:id="addProductCancelBtn" layoutX="728.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionCancelMainMenu" text="Cancel" />
         <Button fx:id="addProductSaveBtn" layoutX="643.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionSaveAddedProduct" text="Save" />
-        <Button fx:id="addProductRemoveAssociatedPartBtn" layoutX="643.0" layoutY="489.0" mnemonicParsing="false" text="Remove Associated Part" />
-        <Button fx:id="addProductAddBtn" layoutX="735.0" layoutY="262.0" mnemonicParsing="false" text="Add" />
-        <TextField fx:id="addProductSearchBar" layoutX="684.0" layoutY="43.0" opacity="0.5" text="Search by Part ID or Name" />
+        <Button fx:id="addProductRemoveAssociatedPartBtn" layoutX="643.0" layoutY="489.0" mnemonicParsing="false" onAction="#onActionRemoveAssociatedPart" text="Remove Associated Part" />
+        <Button fx:id="addProductAddBtn" layoutX="735.0" layoutY="262.0" mnemonicParsing="false" onAction="#onActionAddProduct" text="Add" />
+        <TextField fx:id="addProductSearchBar" layoutX="684.0" layoutY="43.0" onAction="#onActionAddProductSearchBar" text="Search by Part ID or Name" />
     </children>
 </AnchorPane>

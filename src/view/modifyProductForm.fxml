@@ -31,7 +31,7 @@
                 <Label text="Max" GridPane.rowIndex="4" />
             </children>
         </GridPane>
-        <TextField fx:id="modifyProductIdTxtFld" layoutX="139.0" layoutY="134.0" />
+        <TextField fx:id="modifyProductIdTxtFld" disable="true" layoutX="139.0" layoutY="134.0" />
         <TextField fx:id="modifyProductNameTxtFld" layoutX="139.0" layoutY="179.0" />
         <TextField fx:id="modifyProductInvTxtFld" layoutX="139.0" layoutY="221.0" prefHeight="25.0" prefWidth="91.0" />
         <TextField fx:id="modifyProductPriceTxtFld" layoutX="139.0" layoutY="262.0" prefHeight="25.0" prefWidth="91.0" />
@@ -58,6 +58,6 @@
         <Button fx:id="modifyProductSaveBtn" layoutX="643.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionSaveModifyProduct" text="Save" />
         <Button fx:id="modifyProductRemoveAssociatedPartBtn" layoutX="643.0" layoutY="489.0" mnemonicParsing="false" onAction="#onActionRemoveAssociatedPart" text="Remove Associated Part" />
         <Button fx:id="modifyProductAddBtn" layoutX="735.0" layoutY="262.0" mnemonicParsing="false" onAction="#onActionAddProduct" text="Add" />
-        <TextField fx:id="modifyProductSearchBar" layoutX="684.0" layoutY="43.0" opacity="0.5" text="Search by Product ID or Name" />
+        <TextField fx:id="modifyPartSearchBar" layoutX="684.0" layoutY="43.0" onAction="#onActionPartSearchBar" text="Search by Product ID or Name" />
     </children>
 </AnchorPane>
