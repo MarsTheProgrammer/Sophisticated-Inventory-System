@@ -49,7 +49,6 @@ public class MainMenuController implements Initializable {
     Parent scene;
     private static Part highlightedPart;
     private static Product highlightedProduct;
-//    ObservableList<Part> grabbedPart = FXCollections.observableArrayList();
 
     //METHODS
 
@@ -225,28 +224,10 @@ public class MainMenuController implements Initializable {
                 alert.showAndWait();
                 break;
             case 2:
-                //INFORMATIVE ERROR
                 alertInfo.setTitle("Error");
-                alertInfo.setHeaderText("Part are Associated with this Product");
+                alertInfo.setHeaderText("Parts are Associated with this Product");
                 alertInfo.setContentText("You must delete all parts associated with this product before deletion can be successful");
                 alertInfo.showAndWait();
-                break;
-            case 3:
-                alert.setTitle("3");
-                alert.setHeaderText("3");
-                alert.setContentText("3");
-                alert.showAndWait();
-                break;
-            case 4:
-                alert.setTitle("4");
-                alert.setHeaderText("4");
-                alert.showAndWait();
-                break;
-            case 5:
-                alert.setTitle("5");
-                alert.setHeaderText("5");
-                alert.setContentText("5");
-                alert.showAndWait();
                 break;
         }
     }

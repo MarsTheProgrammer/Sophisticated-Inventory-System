@@ -180,7 +180,7 @@ public class AddProductForm implements Initializable {
      *
      * @param actionEvent Add button action
      * **/
-    public void onActionSaveAddedProduct(ActionEvent actionEvent) throws IOException {
+    public void onActionSaveAddedProduct(ActionEvent actionEvent) {
 
         try {
             int id = 0;

@@ -58,6 +58,6 @@
         <Button fx:id="modifyProductSaveBtn" layoutX="643.0" layoutY="527.0" mnemonicParsing="false" onAction="#onActionSaveModifyProduct" text="Save" />
         <Button fx:id="modifyProductRemoveAssociatedPartBtn" layoutX="643.0" layoutY="489.0" mnemonicParsing="false" onAction="#onActionRemoveAssociatedPart" text="Remove Associated Part" />
         <Button fx:id="modifyProductAddBtn" layoutX="735.0" layoutY="262.0" mnemonicParsing="false" onAction="#onActionAddProduct" text="Add" />
-        <TextField fx:id="modifyPartSearchBar" layoutX="684.0" layoutY="43.0" onAction="#onActionPartSearchBar" text="Search by Product ID or Name" />
+        <TextField fx:id="modifyPartSearchBar" layoutX="684.0" layoutY="43.0" onAction="#onActionPartSearchBar" promptText="Search by Product ID or Name" />
     </children>
 </AnchorPane>
