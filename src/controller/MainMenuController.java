@@ -201,12 +201,6 @@ public class MainMenuController implements Initializable {
         }
     }
 
-    public void onMouseClickedSearchbar(MouseEvent mouseEvent) {
-        //WE NEED TO CLEAR THE TEXT FIELD WHEN PRESSED
-
-        productsSearchBar.clear();
-    }
-
 
     private void alertDisplays(int alertType) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
