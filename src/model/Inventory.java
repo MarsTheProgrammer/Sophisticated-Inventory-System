@@ -62,7 +62,8 @@ public class Inventory {
 
     /** Looks up parts based on Part ID.
      *
-     * @param partId Part ID. **/
+     * @param partId Part ID.
+     * @return Part. **/
     public static Part lookupPart(int partId) {
         Part isPartFound = null;
         //SETS THE IS_PART_FOUND TO EMPTY IN CASE IT IS NOT FOUND
@@ -76,7 +77,8 @@ public class Inventory {
 
     /** Looks up products based on Product ID.
      *
-     * @param productId Product ID. **/
+     * @param productId Product ID.
+     * @return Product. **/
     public static Product lookupProduct(int productId) {
 
         //SAME AS ABOVE, JUST FOR PRODUCT

@@ -158,7 +158,6 @@ public class ModifyProductForm implements Initializable {
      * When cancel button is called, the user is returned to the main menu.
      *
      * @param actionEvent Cancel button is called. **/
-
     public void onActionCancelMainMenu(ActionEvent actionEvent) throws IOException { returnToMainScreen(actionEvent); }
 
 

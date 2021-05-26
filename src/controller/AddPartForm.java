@@ -75,7 +75,10 @@ public class AddPartForm {
 
     //METHODS
 
-    /** Returns the user to the main menu screen. **/
+    /** Returns the user to the main menu screen.
+     *
+     * @param actionEvent Main menu called.
+     * @throws IOException **/
     public void returnToMainMenu(ActionEvent actionEvent) throws IOException {
         //THIS IS CALLED AFTER THE SAVE BUTTON IS PRESSED
         stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
@@ -88,18 +91,23 @@ public class AddPartForm {
      *
      * When cancel button is called, the user is returned to the main menu.
      *
-     * @param actionEvent Cancel button is called. **/
+     * @param actionEvent Cancel button is called.
+     * @throws IOException **/
     public void onActionCancelMainMenu(ActionEvent actionEvent) throws IOException {
         returnToMainMenu(actionEvent);
     }
 
-    /** Changes label to display proper text when In-House radio button is selected. **/
+    /** Changes label to display proper text when In-House radio button is selected.
+     *
+     * @param actionEvent In-House radio button called. **/
     public void onActionInHouseChange(ActionEvent actionEvent) {
         //WHEN SWITCHING TO IN-HOUSE RADIO BUTTON, THIS MAKES THE MACHINE ID DISPLAY
         addPartChangeLabel.setText("Machine ID");
     }
 
-    /** Changes label to display proper text when Outsourced radio button is selected. **/
+    /** Changes label to display proper text when Outsourced radio button is selected.
+     *
+     * @param actionEvent Outsourced radio button called. **/
     public void onActionOutsourceChange(ActionEvent actionEvent) {
         //WHEN SWITCHING TO OUTSOURCED RADIO BUTTON, THIS MAKES THE COMPANY NAME DISPLAY
         addPartChangeLabel.setText("Company Name");
@@ -112,7 +120,8 @@ public class AddPartForm {
      *
      * RUNTIME ERROR: If not input was added or incorrect values were added to text fields, the application would crash. FIX: Displayed appropriate error message in substitution of crashes.
      *
-     * @param actionEvent Save button called. **/
+     * @param actionEvent Save button called.
+     * @throws IOException**/
     public void onActionSaveAddedPart(ActionEvent actionEvent) throws IOException {
 
         try {

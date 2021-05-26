@@ -36,7 +36,9 @@ public class Main extends Application {
 
     /** Main method.
      *
-     * Java Docs is located in the JavaDocs folder which is inside the MarchallChristianInventorySystem file. **/
+     * Java Docs is located in the JavaDocs folder which is inside the MarchallChristianInventorySystem file.
+     *
+     * @param args Main args. **/
     public static void main(String[] args) {
 
         //ADDING TEMP PRODUCTS

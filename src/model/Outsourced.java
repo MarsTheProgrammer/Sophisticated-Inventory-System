@@ -6,7 +6,15 @@ package model;
 
 public class Outsourced extends Part {
 
-    /** Default construct with company name variable added. **/
+    /** Default construct with company name variable added.
+     *
+     * @param max Part Max
+     * @param min Part Min
+     * @param price Part Price
+     * @param name Part Name
+     * @param id Part ID
+     * @param companyName Part Company Name
+     * @param stock Part Stock **/
     //DEFAULT SUPER CONSTRUCTOR WITH COMPANY NAME VARIABLE ADDED
     public Outsourced(int id, String name, double price, int stock, int min, int max, String companyName) {
         super(id, name, price, stock, min, max);

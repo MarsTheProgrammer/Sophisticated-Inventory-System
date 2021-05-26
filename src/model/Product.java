@@ -97,32 +97,44 @@ public class Product {
 
     //SETTERS
 
-    /** Sets Product ID. **/
+    /** Sets Product ID.
+     *
+     * @param id Product ID. **/
     public void setId(int id) {
         this.id = id;
     }
 
-    /** Sets Product Name. **/
+    /** Sets Product Name.
+     *
+     * @param name Product Name. **/
     public void setName(String name) {
         this.name = name;
     }
 
-    /** Sets Product Price. **/
+    /** Sets Product Price.
+     *
+     * @param price Product Price. **/
     public void setPrice(double price) {
         this.price = price;
     }
 
-    /** Sets Product Inventory Level. **/
+    /** Sets Product Inventory Level.
+     *
+     * @param stock Product Inventory Level.**/
     public void setStock(int stock) {
         this.stock = stock;
     }
 
-    /** Sets Product Min. **/
+    /** Sets Product Min.
+     *
+     * @param min Product Min. **/
     public void setMin(int min) {
         this.min = min;
     }
 
-    /** Sets Product Max. **/
+    /** Sets Product Max.
+     *
+     * @param max Product Max. **/
     public void setMax(int max) {
         this.max = max;
     }
@@ -138,7 +150,8 @@ public class Product {
 
     /** Deletes selected part from the associated parts observable list.
      *
-     * @param selectedAssociatedPart Highlighted part. **/
+     * @param selectedAssociatedPart Highlighted part.
+     * @return true. **/
     public boolean deleteAssociatedPart(Part selectedAssociatedPart) {
         if (associatedParts.contains(selectedAssociatedPart)) {
             associatedParts.remove(selectedAssociatedPart);
@@ -147,7 +160,9 @@ public class Product {
         return false;
     }
 
-    /** Gets all associated parts from the associatedParts observable list. **/
+    /** Gets all associated parts from the associatedParts observable list.
+     *
+     * @return associatedParts observable list. **/
     public ObservableList<Part> getAllAssociatedParts() {
         return associatedParts;
     }

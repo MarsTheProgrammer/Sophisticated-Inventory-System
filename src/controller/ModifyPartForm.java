@@ -31,7 +31,7 @@ public class ModifyPartForm implements Initializable {
     /** Outsourced radio button **/
     public RadioButton modifyPartOutsourcedRadBtn;
 
-    /** Company Name & Machine ID label **/
+    /** Company Name and Machine ID label **/
     public Label modifyPartChangeLabel;
 
     /** Part ID text field. **/
@@ -52,7 +52,7 @@ public class ModifyPartForm implements Initializable {
     /** Part Min text field. **/
     public TextField modifyPartChangeTxtFld;
 
-    /** Company Name & Machine ID text field. **/
+    /** Company Name and Machine ID text field. **/
     public TextField modifyPartMinTxtFld;
 
     /** Part Min text field **/

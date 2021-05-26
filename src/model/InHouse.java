@@ -6,7 +6,15 @@ package model;
 
 public class InHouse extends Part {
 
-    /** Default construct with machine id variable added. **/
+    /** Default construct with machine id variable added.
+     *
+     * @param max Part Max
+     * @param min Part Min
+     * @param price Part Price
+     * @param name Part Name
+     * @param id Part ID
+     * @param machineId Part Machine ID
+     * @param stock Part Stock. **/
     //DEFAULT SUPER CONSTRUCTOR WITH MACHINE ID VARIABLE ADDED
     public InHouse(int id, String name, double price, int stock, int min, int max, int machineId) {
         super(id, name, price, stock, min, max);
