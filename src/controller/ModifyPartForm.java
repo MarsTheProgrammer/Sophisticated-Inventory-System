@@ -6,48 +6,100 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.InHouse;
 import model.Inventory;
 import model.Outsourced;
 import model.Part;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Marshall Christian : 5/24/2021
+ * **/
+
 public class ModifyPartForm implements Initializable {
+    //FXML Variables
 
-    //VARIABLES
-    private Part highlightedPart;
-    Stage stage;
-    Parent scene;
-
+    /** In-House radio button **/
     public RadioButton modifyPartInHouseRadBtn;
+
+    /** Radio button toggle group **/
     public ToggleGroup radioBtnTgl;
+
+    /** Outsourced radio button **/
     public RadioButton modifyPartOutsourcedRadBtn;
+
+    /** Company Name & Machine ID label **/
     public Label modifyPartChangeLabel;
+
+    /** Part ID text field. **/
     public TextField modifyPartIdTxtFld;
+
+    /** Part Name text field. **/
     public TextField modifyPartNameTxtFld;
+
+    /** Part Inventory Level text field. **/
     public TextField modifyPartInvTxtFld;
+
+    /** Part price text field. **/
     public TextField modifyPartPriceTxtFld;
+
+    /** Part Max text field. **/
     public TextField modifyPartMaxTxtFld;
+
+    /** Part Min text field. **/
     public TextField modifyPartChangeTxtFld;
+
+    /** Company Name & Machine ID text field. **/
     public TextField modifyPartMinTxtFld;
+
+    /** Part Min text field **/
     public Button modifyPartSaveBtn;
+
+    /** Part cancel button. **/
     public Button modifyPartCancelBtn;
 
+    //VARIABLES
+
+    /** Part highlightedPart variable. **/
+    private Part highlightedPart;
+
+    /** Stage variable of type Stage.
+     *
+     * Sets the stage for the scene. **/
+    Stage stage;
+
+    /** Scene variables of type Parent.
+     *
+     * Sets the scene for the user. **/
+    Parent scene;
+
+
+    /** Changes form to In-House.
+     *
+     * When the in-House radio button is pressed, Company Name text field is changed to Machine ID.
+     *
+     * @param actionEvent Radio button called. **/
     public void onActionInHouseChange(ActionEvent actionEvent) {
         //WHEN SWITCHING TO IN-HOUSE RADIO BUTTON, THIS MAKES THE MACHINE ID DISPLAY
         modifyPartChangeLabel.setText("MachineID");
     }
 
+    /** Changes form to Outsourced.
+     *
+     * When the outsourced radio button is pressed, MachineID text field is changed to Company Name.
+     *
+     * @param actionEvent Radio button called. **/
     public void onActionOutsourceChange(ActionEvent actionEvent) {
         //WHEN SWITCHING TO OUTSOURCED RADIO BUTTON, THIS MAKES THE COMPANY NAME DISPLAY
         modifyPartChangeLabel.setText("Company Name");
     }
 
+    /** Returns user to the main menu when cancel button is called.
+     *
+     * @param actionEvent Cancel button called. **/
     public void onActionCancelMainMenu(ActionEvent actionEvent) throws IOException {
         //THIS ALLOWS US TO SWITCH SCREENS WHEN BUTTON IS PRESSED
         stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
@@ -56,6 +108,7 @@ public class ModifyPartForm implements Initializable {
         stage.show();
     }
 
+    /** Initialize method that populates parts table and products table. **/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -83,6 +136,13 @@ public class ModifyPartForm implements Initializable {
 
     }
 
+    /** Saves modified part.
+     *
+     * When save button is called, the part is saved along with if it is In-House or Outsourced. Then the user is returned to the main menu.
+     *
+     * RUNTIME ERROR: Empty fields or invalid values entered would crash the application. FIX: Displayed error messages to fix problem instead of crashing application.
+     *
+     * @param actionEvent Save button called. **/
     public void onActionSaveModifyPart(ActionEvent actionEvent) {
         try {
             int id = highlightedPart.getId();
@@ -130,13 +190,11 @@ public class ModifyPartForm implements Initializable {
         }
     }
 
-    /**
-     * Validates that min is greater than 0 and less than max.
+    /** Tells user that min is greater than 0 and less than max.
      *
-     * @param min The minimum value for the part.
-     * @param max The maximum value for the part.
-     * @return Boolean indicating if min is valid.
-     */
+     * @param min Minimum value for part.
+     * @param max Maximum value for part.
+     * @return Boolean telling user if min is valid. **/
     private boolean minValid(int min, int max) {
 
         boolean isValid = true;
@@ -145,18 +203,15 @@ public class ModifyPartForm implements Initializable {
             isValid = false;
             alertDisplays(3);
         }
-
         return isValid;
     }
 
-    /**
-     * Validates that inventory level is equal too or between min and max.
+    /** Tells user that inventory level is equal or between min and max.
      *
-     * @param min The minimum value for the part.
-     * @param max The maximum value for the part.
-     * @param stock The inventory level for the part.
-     * @return Boolean indicating if inventory is valid.
-     */
+     * @param min Minimum value for part.
+     * @param max Maximum value for part.
+     * @param stock Inventory level for the part.
+     * @return Boolean telling user if inventory is valid. **/
     private boolean inventoryValid(int min, int max, int stock) {
 
         boolean isValid = true;
@@ -165,15 +220,14 @@ public class ModifyPartForm implements Initializable {
             isValid = false;
             alertDisplays(2);
         }
-
         return isValid;
     }
 
-    /**
-     * Displays various alert messages.
+    /** Displays various error messages.
      *
-     * @param alertType Alert message selector.
-     */
+     * Based on the input, displays the appropriate error message instead of crashing program.
+     *
+     * @param alertType Alert message selector. **/
     private void alertDisplays(int alertType) {
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -208,8 +262,6 @@ public class ModifyPartForm implements Initializable {
                 alert.setHeaderText("Part Was Not Highlighted");
                 alert.showAndWait();
                 break;
-
         }
     }
-
 }//END OF CLASS

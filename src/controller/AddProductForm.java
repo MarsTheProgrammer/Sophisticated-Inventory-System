@@ -25,137 +25,91 @@ import java.util.ResourceBundle;
 public class AddProductForm implements Initializable {
 
     //@FXML VARIABLES
-    /**
-     * Product ID text field
-     * **/
+    /** Product ID text field. **/
     public TextField addProductIdTxtFld;
 
-    /**
-     * Product Name text field
-     * **/
+    /** Product Name text field. **/
     public TextField addProductNameTxtFld;
 
-    /**
-     * Product Inventory text field
-     * **/
+    /** Product Inventory text field. **/
     public TextField addProductInvTxtFld;
 
-    /**
-     * Product Price text field
-     * **/
+    /** Product Price text field. **/
     public TextField addProductPriceTxtFld;
 
-    /**
-     * Product Max text field
-     * **/
+    /** Product Max text field. **/
     public TextField addProductMaxTxtFld;
 
-    /**
-     * Product Min text field
-     * **/
+    /** Product Min text field. **/
     public TextField addProductMinTxtFld;
 
-    /**
-     * Product Part table view
-     * **/
+    /** Product Part table view. **/
     public TableView<Part> addProductPartDataTbl;
 
-    /**
-     * Part ID table column
-     * **/
+    /** Part ID table column. **/
     public TableColumn<Part,Integer> partDataPartId;
 
-    /**
-     * Part Name table column
-     * **/
+    /** Part Name table column. **/
     public TableColumn<Part,String> partDataPartName;
 
-    /**
-     * Part Inventory Level table column
-     * **/
+    /** Part Inventory Level table column. **/
     public TableColumn<Part, Integer> partDataInvLevel;
 
-    /**
-     * Part Price table column
-     * **/
+    /** Part Price table column. **/
     public TableColumn<Part,Double> partDataPrice;
 
-    /**
-     * Associated Parts table view
-     * **/
+    /** Associated Parts table view. **/
     public TableView<Part> addProductAssociatedPartTbl;
 
-    /**
-     * Associated Part ID table column
-     * **/
+    /** Associated Part ID table column. **/
     public TableColumn<Part,Integer> associatedPartPartId;
 
-    /**
-     * Associated Part Name table column
-     * **/
+    /** Associated Part Name table column. **/
     public TableColumn<Part,String> associatedPartName;
 
-    /**
-     * Associated Part Inventory Level table column
-     * **/
+    /** Associated Part Inventory Level table column. **/
     public TableColumn<Part,Integer> associatedPartInvLevel;
 
-    /**
-     * Associated Part Price table column
-     * **/
+    /** Associated Part Price table column. **/
     public TableColumn<Part,Double> associatedPartPrice;
 
-    /**
-     * Product Cancel button
-     * **/
+    /** Product Cancel button. **/
     public Button addProductCancelBtn;
 
-    /**
-     * Product Save button
-     * **/
+    /** Product Save button. **/
     public Button addProductSaveBtn;
 
-    /**
-     * Product Remove associated part button
-     * **/
+    /** Product Remove associated part button. **/
     public Button addProductRemoveAssociatedPartBtn;
 
-    /**
-     * Product Add button
-     * **/
+    /** Product Add button. **/
     public Button addProductAddBtn;
 
-    /**
-     * Product Search Bar text field
-     * **/
+    /** Product Search Bar text field. **/
     public TextField addProductSearchBar;
 
-    /**
-     * Observable List called associated parts of type Part
-     * **/
+    /** Observable List called associated parts of type Part. **/
     ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     
     //VARIABLES
-    /**
-     * Stage object called stage
+    /** Stage object called stage.
      *
-     * Sets the stage
-     * **/
+     * Sets the stage for the scene. **/
     Stage stage;
 
-    /**
-     * Parent object called scene
+    /** Parent object called scene.
      *
-     * Sets the scene
-     * **/
+     * Sets the scene. **/
     Parent scene;
 
     //METHODS
-    /**
-     * Returns the user to the main menu
+    /** Returns the user to the main menu.
      *
-     * @param actionEvent return main menu called
-     * **/
+     * When called, the user is returned to the main menu.
+     *
+     * RUNTIME ERROR: Scene would not load throwing load exception. FIX: Added the IOException.
+     *
+     * @param actionEvent return main menu called. **/
     public void returnToMainMenu(ActionEvent actionEvent) throws IOException {
         //THIS IS CALLED AFTER THE SAVE BUTTON IS PRESSED
         stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
@@ -164,22 +118,20 @@ public class AddProductForm implements Initializable {
         stage.show();
     }
 
-    /**
-     * Returns user to main menu when Cancel button is pressed
+    /** When cancel button is pressed, the user returns to the main menu.
      *
-     * @param actionEvent Cancel button action
-     * **/
+     * @param actionEvent Cancel button action. **/
     public void onActionCancelMainMenu(ActionEvent actionEvent) throws IOException {
         returnToMainMenu(actionEvent);
     }
 
-    /**
-     * Saves product to product table
+    /** Saves product to product table.
      *
-     * If any field is empty, error is displayed
+     * When clicking on the save button, the product is saved to the product table. In the event there is an error, the error is displayed.
      *
-     * @param actionEvent Add button action
-     * **/
+     * RUNTIME ERROR: If a field was empty was or invalid value, application would crash FIX: Added error display and try-catch.
+     *
+     * @param actionEvent Add button action. **/
     public void onActionSaveAddedProduct(ActionEvent actionEvent) {
 
         try {
@@ -201,17 +153,15 @@ public class AddProductForm implements Initializable {
         } catch (Exception e) {
             alertDisplays(1);
         }
-        //THIS ALLOWS US TO SWITCH SCREENS WHEN BUTTON IS PRESSED
-
-        //THIS IS CALLED AFTER THE SAVE BUTTON IS PRESSED
-
     }
 
-    /**
-     * Removes part from the associated parts table
+    /** Removes part from the associated parts table.
      *
-     * @param actionEvent Remove button action
-     * **/
+     * When the part is highlighted and the remove button is pressed, confirmation page, the if yes, removes associated part.
+     *
+     * RUNTIME ERROR: If part was not highlighted, the application would crash. FIX: Add an error display to pop up when a part is not highlighted.
+     *
+     * @param actionEvent Remove Associated Part button action. **/
     public void onActionRemoveAssociatedPart(ActionEvent actionEvent) {
 
         Part highlightedPart = addProductAssociatedPartTbl.getSelectionModel().getSelectedItem();//THIS GRABS THE HIGHLIGHTED PART
@@ -231,11 +181,13 @@ public class AddProductForm implements Initializable {
             }
         }
     }
-    /**
-     * Adds part to associated parts table
+    /** Adds part to associated parts table.
      *
-     * @param actionEvent Add button action
-     * **/
+     * Added the highlighted part to the associated parts table.
+     *
+     * RUNTIME ERROR: If product was not highlighted, the application would crash. FIX: Add an error display to pop up when a product is not highlighted.
+     *
+     * @param actionEvent Add button action. **/
     public void onActionAddProduct(ActionEvent actionEvent) {
 
         Part highlightedPart = addProductPartDataTbl.getSelectionModel().getSelectedItem();//THIS GRABS THE HIGHLIGHTED PART
@@ -247,31 +199,31 @@ public class AddProductForm implements Initializable {
         }
     }
 
-    /**
-     * Initialize method that populates parts table and associated parts table
-     * **/
+    /** Initialize method that populates parts table and associated parts table. **/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //POPULATING THE PARTS TABLE
+
+        //POPULATES THE PARTS TABLE
         addProductPartDataTbl.setItems(Inventory.getAllParts());
         partDataPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
         partDataPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
         partDataInvLevel.setCellValueFactory(new PropertyValueFactory<>("stock"));
         partDataPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        //POPULATING THE PRODUCTS TABLE
+        //POPULATES THE PRODUCTS TABLE
         associatedPartPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
         associatedPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
         associatedPartInvLevel.setCellValueFactory(new PropertyValueFactory<>("stock"));
         associatedPartPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
-    /**
-     * Search bar for the part table
+
+    /** Search bar for the parts table.
      *
-     * User can search by Part ID and Part Name
+     * User can search by Part ID and Part Name.
      *
-     * @param actionEvent Search Bar action
-     * **/
+     * FUTURE ENHANCEMENT: Possibly add a search button. Also searching by quantity of products would be nice.
+     *
+     * @param actionEvent Search Bar action. **/
     public void onActionAddProductSearchBar(ActionEvent actionEvent) {
 
         try {
@@ -284,35 +236,41 @@ public class AddProductForm implements Initializable {
         }
     }
 
-    /**
-     * Checks to make sure that the min is less than the max
-     * **/
+    /** Checks to make sure that the min is less than the max.
+     *
+     * @return true if min is within specified parameters. **/
     private boolean minIsValid(int min, int max) {
-
         boolean valid = true;
 
         if (min <= 0 || min >= max) {
             valid = false;
             alertDisplays(3);
         }
-
         return valid;
     }
-    /**
-     * Checks to make sure inventory level is equal to or between min and max
-     * **/
+
+    /** Checks inventory values.
+     *
+     * Checks to make sure inventory level is equal to or between min and max.
+     *
+     * @return true if stock is withing min and max or equal to either. **/
     private boolean inventoryIsValid(int min, int max, int stock) {
         boolean valid = true;
 
         if (stock > max || stock < min) {
             valid = false;
             alertDisplays(2);
-        } return valid;
-
+        }
+        return valid;
     }
-    /**
-     * Based on the input, displays the appropriate error message instead of crashing program
-     * **/
+
+    /** Displays various error messages.
+     *
+     * Based on the input, displays the appropriate error message instead of crashing program.
+     *
+     * FUTURE ENHANCEMENT: Could be more specific about the errors being displayed. Such as, Max needs to be numerical or not empty, instead of default given message.
+     *
+     * @param alertType Alert message selector. **/
     private void alertDisplays(int alertType) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
 
