@@ -115,12 +115,12 @@ public class ModifyPartForm implements Initializable {
         highlightedPart = MainMenuController.getHighlightedPart();
 
         if (highlightedPart instanceof InHouse) {
-            modifyPartInHouseRadBtn.isSelected();
+            modifyPartInHouseRadBtn.setSelected(true);
             modifyPartChangeLabel.setText("MachineID");
             modifyPartChangeTxtFld.setText(String.valueOf(((InHouse) highlightedPart).getMachineId()));
         }
         if (highlightedPart instanceof Outsourced) {
-            modifyPartOutsourcedRadBtn.isSelected();
+            modifyPartOutsourcedRadBtn.setSelected(true);
             modifyPartChangeLabel.setText("Company Name");
             modifyPartChangeTxtFld.setText(((Outsourced) highlightedPart).getCompanyName());
         }//THIS SHOULD HANDLE THE LAST TEXT BOX AND MAKE SURE IT IS FILLED
