@@ -6,3 +6,9 @@ For a more in depth and visual presentation, please see the video below:
 
 https://www.youtube.com/watch?v=Uf28oCy8DTE
 
+Questions or comments?
+
+marstheprogrammer@gmail.com
+
+
+
